@@ -1,6 +1,6 @@
 ---
 - name: Run uname command on the host
-  hosts: CLUS1
+  hosts: ALL_LINUX
   become: yes
   tasks:
     - name: Create LVM root snapshot
