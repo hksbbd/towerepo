@@ -1,0 +1,12 @@
+---
+- name: Run uname command on the host
+  hosts: CLUS1
+  become: yes
+  tasks:
+    - name: Create LVM root snapshot
+      shell: "lvcreate -n root_snap -L 20G -s /dev/mapper/rhel-root"
+      register: command_output
+
+    - name: Display the uname output
+      debug:
+        var: command_output.stdout
